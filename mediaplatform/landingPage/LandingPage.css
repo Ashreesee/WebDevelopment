@@ -1,0 +1,77 @@
+.landingpage-container {
+  position: relative;
+  height: 100vh;
+  overflow: hidden; /* Prevents scrolling */
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the entire background */
+  z-index: -1; /* Places the video behind other elements */
+}
+
+.auth-buttons {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 1rem;
+  z-index: 10; /* Ensures buttons are above other elements */
+}
+
+.auth-button {
+  background-color: #be0c91;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.auth-button:hover {
+  background-color: #ff0b89;
+}
+
+.main-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 5; /* Places the main content above the background video */
+}
+
+.main-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.main-content p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  max-width: 800px; /* Adjust as needed */
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .main-content h1 {
+    font-size: 2rem;
+  }
+
+  .main-content p {
+    font-size: 1.2rem;
+  }
+
+  .auth-buttons {
+    flex-direction: column;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+}
