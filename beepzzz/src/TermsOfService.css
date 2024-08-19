@@ -1,0 +1,241 @@
+/* General styling for the page */
+body {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #333; /* Set background color for better contrast */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.list-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  min-height: 100vh; 
+}
+
+/* Container styling */
+.container {
+  max-width: 1200px;
+  margin: 40px auto; /* Center container horizontally */
+  padding: 0 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center; /* Center text inside container */
+}
+
+/* General heading styling */
+h1, h2, h3, p, ul, ol, li {
+  color: #fff; /* Set text color to white */
+}
+
+/* Specific heading sizes */
+h1 {
+  font-size: 2.5em;
+  margin: 20px auto;
+  text-align: left; /* Align text to the left */
+  max-width: 800px; /* Ensure consistent width */
+  padding-left: 20px;
+}
+
+h2 {
+  font-size: 2em;
+  margin: 30px auto;
+  text-align: left; /* Align text to the left */
+  max-width: 800px; /* Ensure consistent width */
+  padding-left: 20px;
+}
+
+h3 {
+  font-size: 1.5em;
+  margin: 20px auto;
+  text-align: left; /* Align text to the left */
+  max-width: 800px; /* Ensure consistent width */
+  padding-left: 20px;
+}
+
+/* Paragraph styling */
+p {
+  font-size: 1em;
+  margin: 10px auto;
+  line-height: 1.8;
+  text-align: left; /* Align text to the left */
+  max-width: 800px; /* Ensure consistent width */
+  padding-left: 20px; /* Add padding from the left */
+}
+
+/* List styling */
+ul, ol {
+  list-style-position: inside;
+  padding: 0;
+  margin: 20px auto; /* Center list horizontally */
+  max-width: 800px; /* Ensure consistent width */
+  text-align: left; /* Align text to the left within the list */
+  padding-left: 20px; /* Add padding from the left */
+  margin-left: auto; /* Center align the list horizontally */
+  margin-right: auto; /* Center align the list horizontally */
+}
+
+/* List item styling */
+li {
+  margin-bottom: 10px;
+  color: #fff;
+  background-color: transparent;
+  text-align: left; 
+}
+/* Header styling */
+.header {
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent to show background image behind */
+  border-bottom: 1px solid #ddd;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* Header logo styling */
+.header .logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
+/* Header logo span styling */
+.header .logo span {
+  color: #007bff;
+}
+
+/* Navbar styling */
+.header .navbar {
+  display: flex;
+  gap: 20px;
+}
+
+.header .navbar a {
+  color: #333;
+  text-decoration: none;
+  font-size: 1em;
+}
+
+.header .navbar a:hover {
+  color: #007bff;
+}
+
+/* Footer styling */
+.terms-footer {
+  background-color: #343a40; /* Example background color */
+  color: #fff;
+  padding: 20px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  color: #b71d1ddf; /* Example link color */
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #5e0acc; /* Hover color */
+}
+
+.footer-bottom {
+  text-align: center;
+}
+
+/* Button styling */
+.toggle-button {
+  display: block;
+  background-color: #0091ff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  margin: 20px auto; /* Center button horizontally */
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  max-width: 200px; /* Optional: constrain button width */
+}
+
+.toggle-button:hover {
+  background-color: #0056b3;
+}
+
+/* Terms block styling */
+.terms-block {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px auto; /* Center block horizontally */
+  max-width: 800px; /* Set max-width for centering */
+  text-align: center;
+  overflow-x: hidden; /* Center align text inside terms block */
+}
+
+/* Fixes for vendor prefixes and compatibility */
+input[type="text"], input[type="password"], textarea {
+  -webkit-appearance: none; /* Vendor prefix */
+  -moz-appearance: none; /* Vendor prefix */
+  appearance: none; /* Standard property */
+}
+
+button {
+  -webkit-appearance: button; /* Vendor prefix */
+  -moz-appearance: button; /* Vendor prefix */
+  appearance: button; /* Standard property */
+}
+
+@media (max-width: 768px) {
+  .terms-header {
+    padding: 15px;
+  }
+
+  .terms-main {
+    padding: 15px;
+    font-size: 15px; /* Slightly smaller font size on tablets */
+  }
+
+  .footer-links {
+    gap: 10px;
+  }
+
+  .footer-bottom {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .terms-header {
+    padding: 10px;
+  }
+
+  .terms-main {
+    padding: 10px;
+    font-size: 14px; /* Smaller font size on mobile */
+  }
+
+  .footer-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .footer-bottom {
+    font-size: 11px;
+  }
+}
