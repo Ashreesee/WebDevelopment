@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComfyUI Workflows</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto flex justify-between items-center py-4 px-6">
+            <div class="flex items-center space-x-4">
+                <!-- Logo -->
+                <div class="text-xl font-bold text-blue-500">
+                    <span>Think</span><span class="text-green-500">Comfy</span>
+                </div>
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#" class="text-gray-600 hover:text-blue-500">Run ComfyUI Online</a>
+                    <a href="#" class="text-gray-600 hover:text-blue-500">Join Discord</a>
+                    <a href="#" class="text-gray-600 hover:text-blue-500">Share Work</a>
+                </nav>
+            </div>
+             <!-- Hamburger Menu (Mobile) -->
+            <button class="block md:hidden text-gray-600 focus:outline-none" id="menu-button">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+            <!-- Navigation Links (Mobile) -->
+            <div class="fixed inset-0 bg-white shadow-lg z-50 menu-items hidden md:hidden">
+                <div class="relative container mx-auto py-6 px-6">
+                    <button class="absolute top-4 right-4 text-gray-600 focus:outline-none" id="close-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                    <nav class="flex flex-col space-y-4 mt-10">
+                        <a href="#" class="text-gray-600 hover:text-blue-500">Run ComfyUI Online</a>
+                        <a href="#" class="text-gray-600 hover:text-blue-500">Join Discord</a>
+                        <a href="#" class="text-gray-600 hover:text-blue-500">Share Work</a>
+                    </nav>
+                </div>
+            </div>
+            <!-- Buttons -->
+            <div class="space-x-4">
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md">Sign In</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto py-8 px-6">
+        <!-- Title and Search Bar -->
+        <div class="text-center">
+            <h1 class="text-4xl font-bold text-gray-800 mb-4">Share ComfyUI <span class="text-green-500">Workflows.</span></h1>
+            <p class="text-gray-600 mb-6">Download & drop any image into ComfyUI to load its workflow.</p>
+            <div class="flex justify-center mt-4">
+                <div class="image-container">
+                    <img src="image.png" alt="Image description" class="custom-image">
+                </div>                             
+            </div>
+            <div class="flex justify-center items-center">
+                <input type="text" placeholder="Search for workflows..." class="border border-gray-300 px-4 py-2 rounded-l-md w-full max-w-md">
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-r-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 4a7 7 0 100 14 7 7 0 000-14z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="flex flex-wrap justify-center mt-8 space-x-4 space-y-4 sm:space-y-0">
+            <button class="flex items-center text-sm font-medium text-gray-700 hover:text-blue-500 bg-gray-100 border border-gray-300 rounded-lg p-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4h16v2H4zM4 10h16v2H4zM4 16h16v2H4z" />
+                </svg>
+                Filters
+            </button>
+            <button class="flex items-center text-sm font-medium text-gray-700 hover:text-blue-500 bg-gray-100 border border-gray-300 rounded-lg p-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h18M3 12h18m-9 7h9" />
+                </svg>
+                All
+            </button>
+            <button class="flex items-center text-sm font-medium text-gray-700 hover:text-blue-500 bg-gray-100 border border-gray-300 rounded-lg p-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3h14v14H5z" />
+                </svg>
+                Featured
+            </button>
+            <button class="flex items-center text-sm font-medium text-gray-700 hover:text-blue-500 bg-gray-100 border border-gray-300 rounded-lg p-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a8.001 8.001 0 01-7 7.93A8.001 8.001 0 015 11m14 0V7a3 3 0 00-3-3H8a3 3 0 00-3 3v4" />
+                </svg>
+                Latest
+            </button>
+            <button class="flex items-center text-sm font-medium text-gray-700 hover:text-blue-500 bg-gray-100 border border-gray-300 rounded-lg p-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5h6v14H9z" />
+                </svg>
+                Trending
+            </button>
+            <button class="flex items-center text-sm font-medium text-gray-700 hover:text-blue-500 bg-gray-100 border border-gray-300 rounded-lg p-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10l4-4 4 4m-4 4v-4h4v-4m8-4v18m-4-4v-4h4m-4 4h-4" />
+                </svg>
+                Animate Diff
+            </button>
+            <button class="flex items-center text-sm font-medium text-gray-700 hover:text-blue-500 bg-gray-100 border border-gray-300 rounded-lg p-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a8.001 8.001 0 01-7 7.93A8.001 8.001 0 015 11m14 0V7a3 3 0 00-3-3H8a3 3 0 00-3 3v4" />
+                </svg>
+                Control Net
+            </button>
+            <button class="flex items-center text-sm font-medium text-gray-700 hover:text-blue-500 bg-gray-100 border border-gray-300 rounded-lg p-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8V4m0 0H8v4m8 0v12H8V8m0 4h8" />
+                </svg>
+                Upscale
+            </button>
+            <button class="flex items-center text-sm font-medium text-gray-700 hover:text-blue-500 bg-gray-100 border border-gray-300 rounded-lg p-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3v8m-2 2H4m7-2h8m-7-4h8m-4-4h-8v8m8-2v8m2-7h-2a3 3 0 100 6h2v4a3 3 0 100-6h-2a3 3 0 100-6h2V4a3 3 0 100 6z" />
+                </svg>
+                Lora
+            </button>
+            <button class="flex items-center text-sm font-medium text-gray-700 hover:text-blue-500 bg-gray-100 border border-gray-300 rounded-lg p-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Commented by me
+            </button>
+        </div>
+        
+
+        <!-- Card Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+            <!-- Example Card -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://via.placeholder.com/150" alt="Workflow Image" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <div class="flex justify-between items-center">
+                        <div class="text-gray-700 font-medium">Thomas9690</div>
+                        <div class="text-sm text-gray-500">14.9k</div>
+                    </div>
+                    <div class="mt-2 flex justify-between items-center">
+                        <div class="text-sm text-gray-500">148 nodes</div>
+                        <div class="flex space-x-1">
+                            <span class="text-sm text-gray-500">1.2k</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-500">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 9l-3 6m0 0L8 9m3 6V3m0 18v-6m4 4H8a2 2 0 01-2-2V8a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 01-2 2z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://via.placeholder.com/150" alt="Workflow Image" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <div class="flex justify-between items-center">
+                        <div class="text-gray-700 font-medium">Thomas9690</div>
+                        <div class="text-sm text-gray-500">14.9k</div>
+                    </div>
+                    <div class="mt-2 flex justify-between items-center">
+                        <div class="text-sm text-gray-500">148 nodes</div>
+                        <div class="flex space-x-1">
+                            <span class="text-sm text-gray-500">1.2k</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-500">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 9l-3 6m0 0L8 9m3 6V3m0 18v-6m4 4H8a2 2 0 01-2-2V8a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 01-2 2z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://via.placeholder.com/150" alt="Workflow Image" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <div class="flex justify-between items-center">
+                        <div class="text-gray-700 font-medium">Thomas9690</div>
+                        <div class="text-sm text-gray-500">14.9k</div>
+                    </div>
+                    <div class="mt-2 flex justify-between items-center">
+                        <div class="text-sm text-gray-500">148 nodes</div>
+                        <div class="flex space-x-1">
+                            <span class="text-sm text-gray-500">1.2k</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-500">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 9l-3 6m0 0L8 9m3 6V3m0 18v-6m4 4H8a2 2 0 01-2-2V8a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 01-2 2z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://via.placeholder.com/150" alt="Workflow Image" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <div class="flex justify-between items-center">
+                        <div class="text-gray-700 font-medium">Thomas9690</div>
+                        <div class="text-sm text-gray-500">14.9k</div>
+                    </div>
+                    <div class="mt-2 flex justify-between items-center">
+                        <div class="text-sm text-gray-500">148 nodes</div>
+                        <div class="flex space-x-1">
+                            <span class="text-sm text-gray-500">1.2k</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-500">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 9l-3 6m0 0L8 9m3 6V3m0 18v-6m4 4H8a2 2 0 01-2-2V8a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 01-2 2z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://via.placeholder.com/150" alt="Workflow Image" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <div class="flex justify-between items-center">
+                        <div class="text-gray-700 font-medium">Thomas9690</div>
+                        <div class="text-sm text-gray-500">14.9k</div>
+                    </div>
+                    <div class="mt-2 flex justify-between items-center">
+                        <div class="text-sm text-gray-500">148 nodes</div>
+                        <div class="flex space-x-1">
+                            <span class="text-sm text-gray-500">1.2k</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-500">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 9l-3 6m0 0L8 9m3 6V3m0 18v-6m4 4H8a2 2 0 01-2-2V8a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 01-2 2z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://via.placeholder.com/150" alt="Workflow Image" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <div class="flex justify-between items-center">
+                        <div class="text-gray-700 font-medium">Thomas9690</div>
+                        <div class="text-sm text-gray-500">14.9k</div>
+                    </div>
+                    <div class="mt-2 flex justify-between items-center">
+                        <div class="text-sm text-gray-500">148 nodes</div>
+                        <div class="flex space-x-1">
+                            <span class="text-sm text-gray-500">1.2k</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-500">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 9l-3 6m0 0L8 9m3 6V3m0 18v-6m4 4H8a2 2 0 01-2-2V8a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 01-2 2z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://via.placeholder.com/150" alt="Workflow Image" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <div class="flex justify-between items-center">
+                        <div class="text-gray-700 font-medium">Thomas9690</div>
+                        <div class="text-sm text-gray-500">14.9k</div>
+                    </div>
+                    <div class="mt-2 flex justify-between items-center">
+                        <div class="text-sm text-gray-500">148 nodes</div>
+                        <div class="flex space-x-1">
+                            <span class="text-sm text-gray-500">1.2k</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-500">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 9l-3 6m0 0L8 9m3 6V3m0 18v-6m4 4H8a2 2 0 01-2-2V8a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 01-2 2z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://via.placeholder.com/150" alt="Workflow Image" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <div class="flex justify-between items-center">
+                        <div class="text-gray-700 font-medium">Thomas9690</div>
+                        <div class="text-sm text-gray-500">14.9k</div>
+                    </div>
+                    <div class="mt-2 flex justify-between items-center">
+                        <div class="text-sm text-gray-500">148 nodes</div>
+                        <div class="flex space-x-1">
+                            <span class="text-sm text-gray-500">1.2k</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-500">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 9l-3 6m0 0L8 9m3 6V3m0 18v-6m4 4H8a2 2 0 01-2-2V8a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 01-2 2z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://via.placeholder.com/150" alt="Workflow Image" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <div class="flex justify-between items-center">
+                        <div class="text-gray-700 font-medium">Thomas9690</div>
+                        <div class="text-sm text-gray-500">14.9k</div>
+                    </div>
+                    <div class="mt-2 flex justify-between items-center">
+                        <div class="text-sm text-gray-500">148 nodes</div>
+                        <div class="flex space-x-1">
+                            <span class="text-sm text-gray-500">1.2k</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-500">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 9l-3 6m0 0L8 9m3 6V3m0 18v-6m4 4H8a2 2 0 01-2-2V8a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 01-2 2z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://via.placeholder.com/150" alt="Workflow Image" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <div class="flex justify-between items-center">
+                        <div class="text-gray-700 font-medium">Thomas9690</div>
+                        <div class="text-sm text-gray-500">14.9k</div>
+                    </div>
+                    <div class="mt-2 flex justify-between items-center">
+                        <div class="text-sm text-gray-500">148 nodes</div>
+                        <div class="flex space-x-1">
+                            <span class="text-sm text-gray-500">1.2k</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-500">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 9l-3 6m0 0L8 9m3 6V3m0 18v-6m4 4H8a2 2 0 01-2-2V8a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 01-2 2z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://via.placeholder.com/150" alt="Workflow Image" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <div class="flex justify-between items-center">
+                        <div class="text-gray-700 font-medium">Thomas9690</div>
+                        <div class="text-sm text-gray-500">14.9k</div>
+                    </div>
+                    <div class="mt-2 flex justify-between items-center">
+                        <div class="text-sm text-gray-500">148 nodes</div>
+                        <div class="flex space-x-1">
+                            <span class="text-sm text-gray-500">1.2k</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-500">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 9l-3 6m0 0L8 9m3 6V3m0 18v-6m4 4H8a2 2 0 01-2-2V8a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 01-2 2z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://via.placeholder.com/150" alt="Workflow Image" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <div class="flex justify-between items-center">
+                        <div class="text-gray-700 font-medium">Thomas9690</div>
+                        <div class="text-sm text-gray-500">14.9k</div>
+                    </div>
+                    <div class="mt-2 flex justify-between items-center">
+                        <div class="text-sm text-gray-500">148 nodes</div>
+                        <div class="flex space-x-1">
+                            <span class="text-sm text-gray-500">1.2k</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-500">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 9l-3 6m0 0L8 9m3 6V3m0 18v-6m4 4H8a2 2 0 01-2-2V8a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 01-2 2z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://via.placeholder.com/150" alt="Workflow Image" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <div class="flex justify-between items-center">
+                        <div class="text-gray-700 font-medium">Thomas9690</div>
+                        <div class="text-sm text-gray-500">14.9k</div>
+                    </div>
+                    <div class="mt-2 flex justify-between items-center">
+                        <div class="text-sm text-gray-500">148 nodes</div>
+                        <div class="flex space-x-1">
+                            <span class="text-sm text-gray-500">1.2k</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-500">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 9l-3 6m0 0L8 9m3 6V3m0 18v-6m4 4H8a2 2 0 01-2-2V8a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 01-2 2z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Repeat similar blocks for other cards -->
+        </div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.getElementById('menu-button');
+            const closeButton = document.getElementById('close-button');
+            const menuItems = document.querySelector('.menu-items');
+    
+            // Toggle menu visibility
+            menuButton.addEventListener('click', function() {
+                menuItems.classList.toggle('hidden');
+                closeButton.classList.remove('hidden'); // Show close button when menu is open
+            });
+    
+            // Hide menu and close button
+            closeButton.addEventListener('click', function() {
+                menuItems.classList.add('hidden');
+                closeButton.classList.add('hidden'); // Hide close button when menu is closed
+            });
+    
+            // Initial setup
+            menuItems.classList.add('hidden'); // Ensure menu is hidden on page load
+            closeButton.classList.add('hidden'); // Ensure close button is hidden on page load
+        });
+    </script>
+    
+</body>
+
+</html>
