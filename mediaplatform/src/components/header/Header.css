@@ -1,0 +1,112 @@
+/* Header container styling */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: transparent; /* Dark background for contrast */
+    position: relative;
+  }
+  
+  /* Logo styling */
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-icon {
+    width: 50px; /* Adjust logo size */
+    height: 50px;
+    margin-right: 15px;
+  }
+  
+  .platform-name {
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(160deg, #00FFFF, #FF1493);
+    -webkit-background-clip: text;
+    color: transparent; /* Makes the text invisible to show the gradient */
+  }
+  
+  /* Navigation menu */
+  .nav-menu ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+  }
+  
+  .nav-menu ul li {
+    margin-right: 20px;
+  }
+  
+  .nav-menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    position: relative;
+  }
+  
+  /* Gradient effect for nav links */
+  .nav-menu ul li a:hover {
+    background: linear-gradient(160deg, #00FFFF, #FF1493);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  /* Button styles for Login and Sign Up */
+  .login-btn, .signup-btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .login-btn {
+    background-color: #e523be;
+    color: #fff;
+    margin-right: 10px;
+  }
+  
+  .signup-btn {
+    background-color: #32CD32;
+    color: #fff;
+  }
+  
+  /* Mobile menu icon */
+  .menu-icon {
+    display: none;
+    cursor: pointer;
+  }
+  
+  /* Media Queries for responsive design */
+  @media (max-width: 768px) {
+    .menu-icon {
+      display: block;
+      color: #fff;
+      font-size: 1.5rem;
+    }
+  
+    .nav-menu {
+      display: none;
+    }
+  
+    .nav-menu.active {
+      display: block;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: #000;
+      width: 100%;
+    }
+  
+    .nav-menu ul {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .nav-menu ul li {
+      margin-bottom: 20px;
+    }
+  }
+  

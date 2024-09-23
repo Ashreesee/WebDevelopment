@@ -1,0 +1,136 @@
+.Home-container {
+    position: relative;
+    height: 100vh; /* Ensure the container takes up the full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .main-content h1{
+    font-size: 2rem;
+    background: linear-gradient(160deg, #00FFFF, #FF1493);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent; /* Makes the gradient visible */
+    mix-blend-mode: screen; /* Blends with background video */
+  }
+  .main-content p {
+    font-size: 2rem;
+    background: linear-gradient(160deg, #00FFFF, #FF1493);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent; /* Makes the gradient visible */
+    mix-blend-mode: screen;
+  }
+  
+  .main-content {
+    text-align: center;
+    z-index: 1; /* Ensure content is above video */
+    color: white; /* Fallback text color */
+  }
+  /* Container for the cards */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Basic styling for the cards */
+.card {
+  background-color: #1c1c1c;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Inner content for the cards */
+.card-content {
+  color: #fff;
+  text-align: center;
+  z-index: 2;
+  position: relative;
+}
+
+/* Card hover effect */
+.card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Animation for the background overlay */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, #ff6ec4, #7873f5);
+  transition: opacity 0.4s ease-in-out;
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Show overlay on hover */
+.card:hover::before {
+  opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .card {
+    padding: 15px;
+  }
+}
+  
+  .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    filter: brightness(70%);
+  }
+  @keyframes glow {
+    0% {
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.5), 0 0 15px rgba(255, 0, 255, 0.5);
+    }
+    100% {
+      text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 20px rgba(0, 255, 255, 1), 0 0 30px rgba(255, 0, 255, 1);
+    }
+  }
+  
+  .text-animation {
+    color: linear-gradient(160deg, #00FFFF, #FF1493);/* Set a solid color, as gradient cannot be applied to text directly */
+    font-size: 2.5rem;
+    animation: glow 1s ease-in-out infinite alternate;
+    background: linear-gradient(160deg, #00FFFF, #FF1493); /* Gradient background */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .main-content h1 {
+      font-size: 2rem;
+    }
+  
+    .main-content p {
+      font-size: 1.2rem;
+    }
+  }
+  
